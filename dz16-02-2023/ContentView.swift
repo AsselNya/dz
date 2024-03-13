@@ -8,12 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var cross = false
+    @State private var Text1 = false
+    @State private var star = true
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+           
+            if star {
+                Image(systemName: "star").padding()
+            }
+            if Text1 {
+                Text("Контейнер с текстом").padding()
+            }
+            if cross {
+                Image(systemName: "xmark").padding()
+            }
+            Button(action: {
+                cross.toggle()
+                Text1.toggle()
+                star.toggle()
+            }) {
+                Text("Click")
+            }
+            
         }
         .padding()
     }
